@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'time_span'
 
 Gem::Specification.new do |spec|
-  spec.name          = "TimeSpan"
+  spec.name          = "time_span"
   spec.version       = TimeSpan::VERSION
   spec.authors       = ["Courtney de Lautour"]
   spec.email         = ["clautour@thefrontiergroup.com.au"]
