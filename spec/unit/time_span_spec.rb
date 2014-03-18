@@ -147,4 +147,92 @@ describe TimeSpan do
       should eq "1:02:21"
     end
   end
+
+  describe ".new" do
+    subject(:timespan) { TimeSpan.new(duration, unit) }
+
+    context 'unit is seconds' do
+      let(:unit) { :seconds }
+
+      context "duration is greater than 0" do
+        let(:duration) { 10 }
+
+        it "should initialise TimeSpan parsing duration in seconds" do
+          expect(timespan.to_f).to eq(10.0)
+        end
+      end
+
+      context "duration is equal to 0" do
+        let(:duration) { 0 }
+
+        it "should initialise TimeSpan with 0 seconds" do
+          expect(timespan.to_f).to eq(0.0)
+        end
+      end
+
+      context "duration is equal to nil" do
+        let(:duration) { nil }
+
+        it "should initialise TimeSpan with 0 seconds" do
+          expect(timespan.to_f).to eq(0.0)
+        end
+      end
+    end
+
+    context 'unit is minutes' do
+      let(:unit) { :minutes }
+
+      context "duration is greater than 0" do
+        let(:duration) { 1 }
+
+        it "should initialise TimeSpan parsing duration in minutes" do
+          expect(timespan.to_f).to eq(60.0)
+        end
+      end
+
+      context "duration is equal to 0" do
+        let(:duration) { 0 }
+
+        it "should initialise TimeSpan with 0 seconds" do
+          expect(timespan.to_f).to eq(0.0)
+        end
+      end
+
+      context "duration is equal to nil" do
+        let(:duration) { nil }
+
+        it "should initialise TimeSpan with 0 seconds" do
+          expect(timespan.to_f).to eq(0.0)
+        end
+      end
+    end
+
+    context 'unit is hours' do
+      let(:unit) { :hours }
+
+      context "duration is greater than 0" do
+        let(:duration) { 1 }
+
+        it "should initialise TimeSpan parsing duration in hours" do
+          expect(timespan.to_f).to eq(3600.0)
+        end
+      end
+
+      context "duration is equal to 0" do
+        let(:duration) { 0 }
+
+        it "should initialise TimeSpan with 0 seconds" do
+          expect(timespan.to_f).to eq(0.0)
+        end
+      end
+
+      context "duration is equal to nil" do
+        let(:duration) { nil }
+
+        it "should initialise TimeSpan with 0 seconds" do
+          expect(timespan.to_f).to eq(0.0)
+        end
+      end
+    end
+  end
 end

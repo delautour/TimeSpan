@@ -49,9 +49,9 @@ class TimeSpan < DelegateClass(Numeric)
     when :seconds
       super(value)
     when :minutes
-      super(value*SECONDS_PER_MINUTE)
+      super((value || 0) * SECONDS_PER_MINUTE)
     when :hours
-      super(value*SECONDS_PER_HOUR)
+      super((value || 0) * SECONDS_PER_HOUR)
     end
   end
 
