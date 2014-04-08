@@ -35,6 +35,7 @@ class TimeSpan < DelegateClass(Numeric)
 
   # create a new TimeSpan with the specified
   def self.new(value, unit=:seconds)
+    raise ArgumentError, "Value cannot be nil" if value.nil?
     case unit
     when :seconds
       super(value)
@@ -47,6 +48,7 @@ class TimeSpan < DelegateClass(Numeric)
 
   # return a new TimeSpan from a string
   def self.parse(value, unit=:seconds)
+    raise ArgumentError, "Value cannot be nil" if value.nil?
     new(value.to_f, unit)
   end
 
