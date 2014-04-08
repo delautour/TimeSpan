@@ -1,34 +1,24 @@
 require 'delegate'
+require 'time_span_serializer'
+
 class TimeSpan < DelegateClass(Numeric)
-  VERSION = "1.0.0"
+  VERSION = "1.1.0"
 
   SECONDS_PER_MINUTE = 60.0
   SECONDS_PER_HOUR = 3600.0
 
+  SECONDS_SERIALIZER = TimeSpanSerializer.new(:seconds)
+
   # interface used by libs like ActiveRecord to convert instances of TimeSpan to a string.
-  def self.dump(value, unit=:seconds)
-    case unit
-    when :seconds
-      value.total_seconds
-    when :minutes
-      value.total_minutes
-    when :hours
-      value.total_hours
-    end
+  def self.dump(value)
+    SECONDS_SERIALIZER.dump(value)
   end
 
   # interface used by libs like ActiveRecord to convert strings to instances of TimeSpan.
   # this is designed to be flexible in input type. So it can be as a
   # generic "Create me a TimeSpan from this thing" method
-  def self.load(value, unit=:seconds)
-    case value
-    when TimeSpan
-      value
-    when String
-      parse(value, unit)
-    else
-      from_seconds(value)
-    end
+  def self.load(value)
+    SECONDS_SERIALIZER.load(value)
   end
 
   def self.from_seconds(seconds)
