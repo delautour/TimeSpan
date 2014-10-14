@@ -92,6 +92,10 @@ describe TimeSpan do
     it("returns the number of full hours in the timespan") do
       should eq 3
     end
+
+    it("should be an Int") do
+      should be_a_kind_of(Integer)
+    end
   end
 
   describe "#minutes" do
@@ -100,6 +104,10 @@ describe TimeSpan do
 
     it("returns the number of full minuets in the timespan") do
       should eq 2
+    end
+
+    it("should be an Int") do
+      should be_a_kind_of(Integer)
     end
   end
 
@@ -110,6 +118,10 @@ describe TimeSpan do
     it("returns the number of full seconds in the timespan") do
       should eq 15
     end
+
+    it("should be an float") do
+      should be_a_kind_of(Float)
+    end
   end
 
   describe "#total_hours" do
@@ -118,6 +130,10 @@ describe TimeSpan do
 
     it("returns total duration the timespan in hours") do
       should eq 2.5
+    end
+
+    it("should be a float") do
+      should be_a_kind_of(Float)
     end
   end
 
@@ -128,6 +144,10 @@ describe TimeSpan do
     it("returns total duration the timespan in minutes") do
       should eq 2.5
     end
+
+    it("should be a float") do
+      should be_a_kind_of(Float)
+    end
   end
 
   describe "#total_seconds" do
@@ -136,6 +156,10 @@ describe TimeSpan do
 
     it("returns total duration the timespan in seconds") do
       should eq 15.5
+    end
+
+    it("should be a float") do
+      should be_a_kind_of(Float)
     end
   end
 

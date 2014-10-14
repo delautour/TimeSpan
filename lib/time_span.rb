@@ -2,7 +2,7 @@ require 'delegate'
 require 'time_span_serializer'
 
 class TimeSpan < DelegateClass(Numeric)
-  VERSION = "1.1.0"
+  VERSION = "1.1.1"
 
   SECONDS_PER_MINUTE = 60.0
   SECONDS_PER_HOUR = 3600.0
@@ -57,11 +57,11 @@ class TimeSpan < DelegateClass(Numeric)
   end
 
   def total_minutes
-    self / SECONDS_PER_MINUTE
+    self.to_f / SECONDS_PER_MINUTE
   end
 
   def total_hours
-    self / SECONDS_PER_HOUR
+    self.to_f / SECONDS_PER_HOUR
   end
 
   def hours
